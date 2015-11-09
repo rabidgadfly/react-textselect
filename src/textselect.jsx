@@ -20,11 +20,14 @@ var TextSelect = React.createClass({
     var classes = 'react-textselect'
     if (className) classes += ' ' + className
 
+    var selectId = "textselect";
+    if(id) selectId = id;
+
     return (
       <span className={classes}>
       {options[active]}
 
-      <select id={id} className='react-textselect-input' onChange={this.handleChange} value={active}>
+      <select id={selectId} className='react-textselect-input' onChange={this.handleChange} value={active}>
         {lodashMap(options, function mapOptions (value, key) {
           return (
             <option value={key} key={key}>{value}</option>
