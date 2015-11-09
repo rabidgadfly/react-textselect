@@ -6,7 +6,8 @@ var TextSelect = React.createClass({
     options: React.PropTypes.any.isRequired,
     active: React.PropTypes.any.isRequired,
     onChange: React.PropTypes.func.isRequired,
-    className: React.PropTypes.string
+    className: React.PropTypes.string,
+    id: React.PropTypes.string,
   },
 
   handleChange (event) {
@@ -14,7 +15,7 @@ var TextSelect = React.createClass({
   },
 
   render () {
-    var {options, active, className} = this.props
+    var {options, active, className, id} = this.props
 
     var classes = 'react-textselect'
     if (className) classes += ' ' + className
@@ -23,7 +24,7 @@ var TextSelect = React.createClass({
       <span className={classes}>
       {options[active]}
 
-      <select className='react-textselect-input' onChange={this.handleChange} value={active}>
+      <select id={id} className='react-textselect-input' onChange={this.handleChange} value={active}>
         {lodashMap(options, function mapOptions (value, key) {
           return (
             <option value={key} key={key}>{value}</option>
